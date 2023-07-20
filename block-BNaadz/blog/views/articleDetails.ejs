@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article Details</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% include partials/header.ejs %>
+    <div class="container">
+      <a href="/articles" class="btn-black">⬅ Back to Article List</a>
+      <div class="card">
+          <div class="title">
+            <h1>Title: <%= article.title %></h1>
+          </div>
+          <p class="description">Description: <%= article.description %></p>
+          <p class="tags">Tags: [ <%= article.tags %> ]</p>
+          <h3 class="author">Author: <%= article.author.fullname %></h3>
+          <p><%= article.author.email %></p>
+          <p class="likes">Likes: <%= article.likes %> </p>
+          <a href="/articles/<%= article._id %>/likes" class="btn-pink">Like</a>
+          <a href="/articles/<%= article._id %>/update" class="btn-blue">Update</a>
+          <a href="/articles/<%= article._id %>/delete" class="btn-red">Delete</a>
+          
+          <div class="comment-form">
+            <form action="/articles/<%= article._id %>/comments" method="post">    
+              <textarea name="content" cols="30" rows="5" placeholder="Write Comments"></textarea>
+              <input type="submit" value="Comment">
+            </form>
+          </div>
+          <section class="comment-field">
+            <h3>Comments:</h3>
+            <% article.comments.forEach(function(comment) { %>
+              <div class="single-comment">
+                <h4><%= comment.author.fullname %>:</h4>
+                <p><%= comment.content %></p>
+              </div>
+              <span>Likes: <%= comment.likes %></span>
+              <a href="/comments/<%= comment._id %>/likes" class="btn-pink btn-small">Like</a>
+              <a href="/comments/<%= comment._id %>/update" class="btn-blue btn-small">Edit</a>
+              <a href="/comments/<%= comment._id %>/delete" class="btn-red btn-small">Delete</a>
+            <% }) %>
+          </section>
+          <% include partials/footer.ejs %>
+      </div>
+    </div>
+  </body>
+</html>

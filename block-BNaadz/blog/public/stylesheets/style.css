@@ -1,0 +1,289 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.articlelist {
+  list-style-type: none;
+}
+
+.flex-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f3f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+li {
+  font-size: 18px;
+}
+
+.btn-green,
+.btn-blue,
+.btn-red,
+.btn-pink,
+.btn-black {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  margin: 10px 10px 10px 0px;
+}
+
+.btn-green {
+  background-color: #4caf50;
+}
+
+.btn-blue {
+  background-color: #2196f3;
+}
+
+.btn-red {
+  background-color: #f44336;
+}
+
+.btn-pink {
+  background-color: #9c27b0;
+}
+
+.btn-black {
+  background-color: rgb(17, 17, 17);
+}
+
+.btn-green:hover,
+.btn-blue:hover,
+.btn-red:hover,
+.btn-pink:hover,
+.btn-black:hover {
+  opacity: 0.8;
+}
+
+.description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.tags {
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.author {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.likes {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ff6b6b;
+}
+
+p {
+  margin: 5px 0;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.header {
+  background-color: #ccc;
+  padding: 10px;
+}
+
+.home {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2196f3;
+  text-decoration: none;
+}
+
+.container,
+form {
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.btn-black {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+}
+
+.btn-black-2 {
+  position: absolute;
+  top: 150px;
+  left: 50px;
+}
+
+.comment-form form {
+  margin: 10px;
+  background-color: #a7d7ff;
+  border-radius: 5px;
+}
+
+.comment-form textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.comment-form input[type="submit"] {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.comment-field {
+  margin-top: 20px;
+  background-color: #a9c7df;
+  padding: 10px;
+}
+
+.comment-field h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.single-comment {
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.btn-small {
+  padding: 3px 10px;
+  font-size: 12px;
+  margin: 5px 5px 15px 5px;
+}
+
+
+/* Header Styles */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .home {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.header nav ul li a:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.header nav ul li a.btn-green {
+  background-color: #4CAF50;
+}
+
+.flash-red {
+  color: red;
+}
+
+.flash-green {
+  color: green;
+}
+
+.sidebar .btn-black {
+  position: static;
+  padding: 5px;
+  background-color: #eeecec;
+  color: black;
+  box-shadow: 1px 1px 0 0 rgba(0, 0, 0, .25),
+  -1px -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-80 {
+  flex: 0 0 65%;
+  background-color: #7ac1fa;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.flex-15 {
+  flex: 0 1 20%;
+  flex-wrap: wrap;
+  background-color: #7ac1fa;
+  padding: 1rem;
+  border-radius: 1rem;
+}
