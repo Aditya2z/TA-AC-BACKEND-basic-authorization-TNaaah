@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article Update Form</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% include partials/header.ejs %>
+    <h1 class="title">Update the Article</h1>
+    <a href="/articles" class="btn-black">⬅ Back to Article List</a>
+    <div>
+      <a href="/articles/<%= article._id %>" class="btn-black btn-black-2"
+        >⬅ Back to Article Details</a
+      >
+    </div>
+
+    <form action="/articles/<%= article._id %>" method="post">
+      <label for="title">Title:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        value="<%= article.title %>"
+        required
+      />
+
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        name="description"
+        required
+      ><%= article.description %>"</textarea>
+
+      <label for="tags">Tags:</label>
+      <input type="text" id="tags" name="tags" value="<%= article.tags.join(" ") %>" />
+
+      <button type="submit" class="btn-blue">Update</button>
+    </form>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

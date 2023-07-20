@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Comment</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% include partials/header.ejs %>
+    <div class="container">
+      <a href="/articles" class="btn-black">⬅ Back to Article List</a>
+      <div>
+        <a href="/articles/<%= comment.articleId %>" class="btn-black btn-black-2"
+          >⬅ Back to Article Details</a
+        >
+      </div>
+      <div class="card">          
+          <div class="comment-form">
+            <form action="/comments/<%= comment._id %>" method="post">    
+              <textarea name="content" cols="30" rows="5" placeholder="Write Comments"><%= comment.content %></textarea>
+              <input type="submit" value="Update Comment">
+            </form>
+          </div>
+          <% include partials/footer.ejs %>
+      </div>
+    </div>
+  </body>
+</html>
