@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles List</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% include partials/header.ejs %>
+    <p class="flash-green"><%= success %></p>
+    <p class="flash-red"><%= error %></p>
+    <div class="container">
+      <div class="title">
+        <h1>Articles List</h1>
+      </div>
+      <a href="/articles/new" class="btn-green">Add Article</a>
+      <a href="/articles" class="btn-blue">View All Articles</a>
+      <div class="flex">
+        <ul class="articlelist flex-80">
+          <% articles.forEach(function(article) { %>
+          <li>
+            <div class="flex-strip">
+              <h3><%= article.title %></h3>
+              <a href="/articles/<%= article._id %>" class="btn-green">Article Details</a>
+            </div>
+          </li>
+          <% }) %>
+        </ul>
+        <aside class="sidebar flex-15">
+          <h3>Tags:</h3>
+          <% allTags.forEach(function(tag) { %>
+            <a href="/articles?tag=<%= tag %>" class="btn-black"><%= tag %></a>
+          <% }) %>
+        </aside>
+      </div>
+    </div>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

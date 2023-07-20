@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% include partials/header %>
+   <div class="container">
+    <h1 class="title"><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <a href="/articles" class="btn-blue">View Articles</a>
+   </div>
+   <% include partials/footer %>
+  </body>
+</html>

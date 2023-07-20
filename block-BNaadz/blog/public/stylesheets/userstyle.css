@@ -1,0 +1,95 @@
+/* Header Styles */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .home {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header nav ul li a:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.header nav ul li a.btn-green {
+  background-color: #4caf50;
+}
+
+.container {
+  width: 90%;
+  padding: 16px;
+  background-color: #f2f2f2;
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.btn-green,
+.btn-blue {
+  color: white;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center; /* Added */
+}
+
+.btn-green {
+  background-color: #4caf50;
+}
+
+.btn-blue {
+  background-color: #01b7ff;
+}
+
+.btn-green:hover,
+.btn-blue:hover {
+  opacity: 0.8;
+}
+
+.flash-red {
+  color: red;
+}
+
+.flash-green {
+  color: green;
+}

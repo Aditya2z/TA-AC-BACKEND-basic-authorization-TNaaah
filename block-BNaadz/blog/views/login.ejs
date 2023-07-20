@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/userstyle.css">
+</head>
+<body>
+    <% include partials/header %>
+    <div class="container">
+        <h2>Login</h2>
+        <p class="flash-green"><%= success %></p>
+        <p class="flash-red"><%= error %></p>
+        <form action="/users/login" method="post">
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+        
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+        
+            <button type="submit" class="btn-green">Login</button>
+        </form>
+      </div>
+      <% include partials/footer %>
+</body>
+</html>
