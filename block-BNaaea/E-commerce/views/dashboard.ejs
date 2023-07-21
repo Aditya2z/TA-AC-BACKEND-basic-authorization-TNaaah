@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% include partials/header %>
+
+    <section class="hero">
+      <h1>Admin dashboard</h1>
+      <a href="/products" class="btn-green">Get all products</a>
+      <a href="/users" class="btn-green">Get all users</a>
+      <a href="/products/categories" class="btn-green">Get all categories</a>
+    </section>
+
+    <% if(typeof users !== 'undefined') { %>
+        <ul>
+        <h2>User List</h2>
+        <% users.forEach(function(user) { %>
+            <li class="card">
+                <h3>Name: <%= user.firstName + user.lastName %></h3>
+                <p>Email <%= user.email %></p>
+                <p>Admin: <%= user.isAdmin %></p>
+                <% if(!user.isAdmin) { %> <% if(user.isBlocked) { %>
+                <a href="/users/<%=user._id%>/block" class="btn-green">Unblock</a>
+                <% } else { %>
+                <a href="/users/<%=user._id%>/block" class="btn-red">Block</a>
+                <% } %> <% } %>
+            </li>
+        <% }) %>
+        </ul>
+    <% } %>
+
+    <% if(typeof allCategories !== 'undefined') { %>
+    <section class="card">
+        <h3>Categories:</h3>
+        <% allCategories.forEach(function(category) { %>
+          <a href="/products?category=<%= category %>" class="btn-black"><%= category %></a>
+        <% }) %>
+    </section>
+    <% } %> 
+    <% include partials/footer %>
+  </body>
+</html>

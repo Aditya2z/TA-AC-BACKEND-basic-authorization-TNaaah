@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+    <% include partials/header.ejs %>
+    <div class="container">
+        <a href="/products" class="btn-black">⬅ Back to Product List</a>
+        <div class="card">
+            <div class="title">
+                <h1>Name: <%= product.name %></h1>
+            </div>
+            <p class="description">Description: <%= product.description %></p>
+            <p class="category">Category: <%= product.category.join(', ') %></p>
+            <p class="price">Price: $<%= product.price %></p>
+            <p class="quantity">Quantity: <%= product.quantity %></p>
+            <p class="likes">Likes: <%= product.likes %> </p>
+            <a href="/products/<%= product._id %>/like" class="btn-pink">Like</a>
+            <a href="/products/<%= product._id %>/update" class="btn-blue">Update</a>
+            <a href="/products/<%= product._id %>/delete" class="btn-red">Delete</a>
+        </div>
+    </div>
+    <% include partials/footer.ejs %>
+</body>
+</html>

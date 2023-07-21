@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <% if(user) { %>
+        <header class="header">
+            <a href="/" class="home">HOME</a>
+            <nav>
+                <ul>
+                    <li><%= user.firstName +" " + user.lastName %></li>
+                    <% if(user.isAdmin) { %>
+                        <li><a href="/admin" class="btn-blue">Go to dashboard</a></li>
+                    <% } %>
+                    <li><a href="/products/cart" class="btn-blue">Go to Cart</a></li>
+                    <li><a href="/users/logout" class="btn-red">Log Out</a></li>
+                </ul>
+            </nav>
+        </header>
+   <% } else { %>
+        <header class="header">
+            <a href="/" class="home">HOME</a>
+            <nav>
+                <ul>
+                    <li><a href="/users/register" class="btn-green">Register</a></li>
+                    <li><a href="/users/login" class="btn-green">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+    <% } %>
+
