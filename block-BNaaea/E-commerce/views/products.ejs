@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+    <% include partials/header.ejs %>
+    <div class="container">
+        <div class="title">
+            <h1>Product List</h1>
+        </div>
+        <ul class="product-list">
+            <p class="flash-red"><%= error %></p>
+            <p class="flash-green"><%= success %></p>
+            <a href="/products/new" class="btn-green">Create Product</a>
+            <% products.forEach(function(product) { %>
+            <li class="product-card">
+                <div class="product-info">
+                    <h3><%= product.name %></h3>
+                    <p><strong>Category:</strong> <%= product.category.join(', ') %></p>
+                    <p><strong>Description:</strong> <%= product.description %></p>
+                    <p><strong>Price:</strong> $<%= product.price %></p>
+                    <p><strong>Quantity:</strong> <%= product.quantity %></p>
+                </div>
+                <div class="product-actions">
+                    <a href="/products/<%= product._id %>" class="btn-green">Product Details</a>
+                    <a href="/products/<%= product._id %>/cart/add" class="btn-blue">Add to Cart</a>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+        <aside class="sidebar flex-24">
+            <h3>Categories:</h3>
+            <% allCategories.forEach(function(category) { %>
+              <a href="/products?category=<%= category %>" class="btn-black"><%= category %></a>
+            <% }) %>
+          </aside>
+    </div>
+    <% include partials/footer.ejs %>
+</body>
+</html>

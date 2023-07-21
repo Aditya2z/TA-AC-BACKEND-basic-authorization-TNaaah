@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <% include partials/header.ejs %>
+    <div class="container">
+        <h1>Cart</h1>
+        <% if (cart && cart.items.length > 0) { %>
+            <!-- Display cart items here -->
+            <% cart.items.forEach(function(item) { %>
+                <p>Product: <%= item.product.name %></p>
+                <p>Quantity: <%= item.quantity %></p>
+            <% }) %>
+        <% } else { %>
+            <p>Your cart is empty.</p>
+        <% } %>
+    </div>
+    <% include partials/footer.ejs %>
+</body>
+</html>
