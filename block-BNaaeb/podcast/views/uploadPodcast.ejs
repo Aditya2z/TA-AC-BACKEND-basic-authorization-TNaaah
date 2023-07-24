@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Podcast</title>
+</head>
+<body>
+    <% include partials/header %>
+
+    <div class="flash-container">
+        <% if (successMessage && successMessage.length > 0) { %>
+            <div class="flash-success">
+                <%= successMessage %>
+            </div>
+            <script>
+                // Automatically remove success flash message after 2 seconds
+                setTimeout(() => {
+                    document.querySelector('.flash-success').style.display = 'none';
+                }, 2000);
+            </script>
+        <% } %>
+
+        <% if (errorMessage && errorMessage.length > 0) { %>
+            <div class="flash-error">
+                <%= errorMessage %>
+            </div>
+            <script>
+                // Automatically remove error flash message after 2 seconds
+                setTimeout(() => {
+                    document.querySelector('.flash-error').style.display = 'none';
+                }, 2000);
+            </script>
+        <% } %>
+    </div>
+
+    <h1>Upload Podcast</h1>
+
+    <form action="/podcasts/upload" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+        <br>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="free">Free</option>
+            <option value="vip">VIP</option>
+            <option value="premium">Premium</option>
+        </select>
+        <br>
+
+        <input type="submit" value="Upload Podcast" class="btn btn-green">
+    </form>
+
+    <% include partials/footer %>
+</body>
+</html>

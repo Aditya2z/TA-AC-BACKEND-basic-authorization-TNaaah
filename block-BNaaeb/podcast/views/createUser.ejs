@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <% include partials/header %>
+
+    <div class="flash-container">
+        <% if (successMessage && successMessage.length > 0) { %>
+            <div class="flash-success">
+                <%= successMessage %>
+            </div>
+            <script>
+                // Automatically remove success flash message after 2 seconds
+                setTimeout(() => {
+                    document.querySelector('.flash-success').style.display = 'none';
+                }, 2000);
+            </script>
+        <% } %>
+
+        <% if (errorMessage && errorMessage.length > 0) { %>
+            <div class="flash-error">
+                <%= errorMessage %>
+            </div>
+            <script>
+                // Automatically remove error flash message after 2 seconds
+                setTimeout(() => {
+                    document.querySelector('.flash-error').style.display = 'none';
+                }, 2000);
+            </script>
+        <% } %>
+    </div>
+
+    <h1>User Registration Form</h1>
+
+    <form action="/users/new" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <br />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <br />
+
+      <label for="membership">Membership:</label>
+      <select id="membership" name="membership">
+        <option value="free">Free</option>
+        <option value="vip">VIP</option>
+        <option value="premium">Premium</option>
+      </select>
+      <br />
+
+      <input type="submit" value="Create User" class="btn btn-green" />
+    </form>
+    <% include partials/footer %>
+  </body>
+</html>
