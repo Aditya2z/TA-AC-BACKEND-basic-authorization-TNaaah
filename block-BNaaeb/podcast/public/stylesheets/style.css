@@ -1,0 +1,599 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+button{
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Header Styles */
+.header {
+  background-color: #333; /* Spotify green */
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logo:hover {
+  opacity: 0.8;
+  color: #83ffae;
+  transition: all 500ms ease-in-out;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline;
+  margin-left: 20px;
+}
+
+.nav-links li:first-child {
+  margin-left: 0;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links li a:hover {
+  opacity: 0.8;
+  color: #83ffae;
+  transition: all 500ms ease-in-out;
+}
+
+/* Hero Styles */
+.hero {
+  background-color: #1db954; /* Spotify green */
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  transition: all 500ms ease-in-out;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #1db954; /* Spotify green */
+}
+
+.btn-green {
+  background-color: #1db954;
+  color: #fff;
+}
+
+.btn-blue {
+  background-color: rgb(47, 188, 253);
+  color: white;
+}
+
+.btn-red {
+  background-color: #da3f3a;
+  color: #fff;
+}
+
+.btn-upload {
+  position: absolute;
+  top: 90px;
+  right: 25px;
+  cursor: pointer;
+}
+/* Episodes Section Styles */
+.episodes {
+  padding: 80px 0;
+}
+
+.episode-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.episode-card {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.episode-card img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.episode-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.episode-card p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+audio {
+  width: 100%;
+}
+
+/* About Section Styles */
+.about {
+  background-color: #1db954; /* Spotify green */
+  padding: 80px 0;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.about p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Contact Section Styles */
+.contact {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333; /* Spotify green */
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer p {
+  font-size: 14px;
+}
+
+/* Registration form */
+
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea,
+input[type="file"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+select {
+  width: 96%;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #295f2c;
+  opacity: 0.9;
+  transition: all 500ms ease-in-out;
+}
+
+/* styles.css */
+
+/* Flash messages container */
+.flash-container {
+  position: fixed;
+  top: 20px;
+  left: 35%;
+  z-index: 9999;
+}
+
+/* Success flash message style */
+.flash-success {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #5cb85c; /* Green background color for success */
+  color: #ffffff; /* White text color for success */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeInOut 2s ease-in-out;
+}
+
+/* Error flash message style */
+.flash-error {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #d9534f; /* Red background color for error */
+  color: #ffffff; /* White text color for error */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeInOut 2s ease-in-out;
+}
+
+/* Podcast Card */
+/* CSS for Podcast Cards */
+#allPodcasts ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#freePodcasts ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#vipPodcasts ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#premiumPodcasts ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#uploadPodcast {
+  background-color: #5cb85c;
+  padding: 20px;
+  color: white;
+}
+
+#uploadPodcast form {
+  background-color: #fff;
+}
+
+.podcast-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-content: space-between;
+}
+
+.podcast-cover {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.podcast-info {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.podcast-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.podcast-description {
+  font-size: 0.9rem;
+}
+.podcast-host {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.vip {
+  background-color: #1db954;
+}
+
+.premium {
+  background-color: rgb(250, 250, 151);
+}
+
+/* Admin dashboard */
+.filter-buttons {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ccc;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Style the episode cards */
+
+
+/* Style the audio player */
+.audio-player {
+  margin-top: 20px;
+}
+
+audio {
+  width: 100%;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* CSS animation for fadeInOut */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 20px;
+  }
+
+  .nav-links li {
+    display: block;
+    margin: 10px 0;
+  }
+}

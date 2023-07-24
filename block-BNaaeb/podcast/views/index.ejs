@@ -1,0 +1,82 @@
+<% include partials/header %>
+
+<div class="flash-container">
+  <% if (successMessage && successMessage.length > 0) { %>
+      <div class="flash-success">
+          <%= successMessage %>
+      </div>
+      <script>
+          // Automatically remove success flash message after 2 seconds
+          setTimeout(() => {
+              document.querySelector('.flash-success').style.display = 'none';
+          }, 2000);
+      </script>
+  <% } %>
+
+  <% if (errorMessage && errorMessage.length > 0) { %>
+      <div class="flash-error">
+          <%= errorMessage %>
+      </div>
+      <script>
+          // Automatically remove error flash message after 2 seconds
+          setTimeout(() => {
+              document.querySelector('.flash-error').style.display = 'none';
+          }, 2000);
+      </script>
+  <% } %>
+</div>
+
+  <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Welcome to My Awesome Podcast</h1>
+        <p>Discover captivating stories, insightful interviews, and much more.</p>
+        <a href="#episodes" class="btn btn-white">Listen Now</a>
+      </div>
+    </section>
+
+<!-- Episodes Section -->
+<section id="episodes" class="episodes">
+  <div class="container">
+    <h2>Latest Episodes</h2>
+    <div class="episode-list">
+      <% if (latestEpisodes && latestEpisodes.length > 0) { %>
+        <% latestEpisodes.forEach((episode) => { %>
+          <!-- Episode Card -->
+          <div class="episode-card">
+            <img src="../<%= episode.episodes[0].coverImageURL %>" alt="Episode Cover">
+            <h3><%= episode.title %></h3>
+            <p><%= episode.description %></p>
+            <audio controls>
+              <source src="../<%= episode.episodes[0].audioFileURL %>" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <!-- No Episodes Found -->
+        <p>No episodes available.</p>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Our Podcast</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget fermentum urna. Curabitur dictum risus a rhoncus cursus.</p>
+      <p>Vivamus condimentum ligula nec diam dapibus, eu tincidunt mauris tincidunt.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or suggestions, feel free to get in touch with us!</p>
+      <!-- Add a contact form or contact information here -->
+    </div>
+  </section>
+
+<% include partials/footer %>

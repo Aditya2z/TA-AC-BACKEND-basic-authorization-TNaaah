@@ -1,0 +1,174 @@
+<!-- Include the header from the homepage -->
+<% include partials/header %>
+
+<!-- Admin Dashboard Content -->
+<div class="admin-dashboard">
+  <h1>Welcome, Admin!</h1>
+
+  <!-- Buttons to Filter Podcasts -->
+
+  <h2>Browse Podcasts</h2>
+  <div class="filter-buttons">
+    <button onclick="showFreePodcasts()" class="btn btn-green">Free</button>
+    <button onclick="showVipPodcasts()" class="btn btn-green">VIP</button>
+    <button onclick="showPremiumPodcasts()" class="btn btn-green">
+      Premium
+    </button>
+    <button onclick="showAllPodcasts()" class="btn btn-green">
+      All Podcasts
+    </button>
+  </div>
+
+  <!-- Podcast Cards -->
+  <div class="podcast-cards">
+    <!-- Section for Free Podcasts -->
+    <section id="freePodcasts" style="display: none">
+      <h2>Free Podcasts</h2>
+      <ul>
+        <% for (const podcast of freePodcasts) { %>
+        <li class="podcast-card <%= podcast.category %>">
+          <figure>
+            <img
+              class="podcast-cover"
+              src="../<%= podcast.episodes[0].coverImageURL %>"
+              alt="<%= podcast.title %> Cover"
+            />
+          </figure>
+          <div class="podcast-info">
+            <h3 class="podcast-title"><%= podcast.title %></h3>
+            <p class="podcast-description"><%= podcast.description %></p>
+            <span class="podcast-host">Host: <%= podcast.host.name %></span>
+            <div class="audio-player">
+              <audio controls>
+                <source
+                  src="../<%= podcast.episodes[0].audioFileURL %>"
+                  type="audio/mpeg"
+                />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+            <div class="podcast-actions">
+              <a href="/podcasts/edit/<%= podcast._id %>" class="btn btn-blue"
+                >Edit</a
+              >
+              <a href="/podcasts/delete/<%= podcast._id %>" class="btn btn-red"
+                >Delete</a
+              >
+            </div>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+
+    <!-- Section for VIP Podcasts -->
+    <section id="vipPodcasts" style="display: none">
+      <h2>VIP Podcasts</h2>
+      <ul>
+        <% for (const podcast of vipPodcasts) { %>
+        <li class="podcast-card <%= podcast.category %>">
+          <figure>
+            <img
+              class="podcast-cover"
+              src="../<%= podcast.episodes[0].coverImageURL %>"
+              alt="<%= podcast.title %> Cover"
+            />
+          </figure>
+          <div class="podcast-info">
+            <h3 class="podcast-title"><%= podcast.title %></h3>
+            <p class="podcast-description"><%= podcast.description %></p>
+            <span class="podcast-host">Host: <%= podcast.host.name %></span>
+            <div class="audio-player">
+              <audio controls>
+                <source
+                  src="../<%= podcast.episodes[0].audioFileURL %>"
+                  type="audio/mpeg"
+                />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+            <div class="podcast-actions">
+              <a href="/podcasts/edit/<%= podcast._id %>" class="btn btn-blue"
+                >Edit</a
+              >
+              <a href="/podcasts/delete/<%= podcast._id %>" class="btn btn-red"
+                >Delete</a
+              >
+            </div>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+
+    <!-- Section for Premium Podcasts -->
+    <section id="premiumPodcasts" style="display: none">
+      <h2>Premium Podcasts</h2>
+      <ul>
+        <% for (const podcast of premiumPodcasts) { %>
+        <li class="podcast-card <%= podcast.category %>">
+          <figure>
+            <img
+              class="podcast-cover"
+              src="../<%= podcast.episodes[0].coverImageURL %>"
+              alt="<%= podcast.title %> Cover"
+            />
+          </figure>
+          <div class="podcast-info">
+            <h3 class="podcast-title"><%= podcast.title %></h3>
+            <p class="podcast-description"><%= podcast.description %></p>
+            <span class="podcast-host">Host: <%= podcast.host.name %></span>
+            <div class="audio-player">
+              <audio controls>
+                <source
+                  src="../<%= podcast.episodes[0].audioFileURL %>"
+                  type="audio/mpeg"
+                />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+            <div class="podcast-actions">
+              <a href="/podcasts/edit/<%= podcast._id %>" class="btn btn-blue"
+                >Edit</a
+              >
+              <a href="/podcasts/delete/<%= podcast._id %>" class="btn btn-red"
+                >Delete</a
+              >
+            </div>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Include the footer from the homepage -->
+  <% include partials/footer %>
+
+  <!-- Script to handle filter buttons -->
+  <script>
+    function showFreePodcasts() {
+      document.getElementById("freePodcasts").style.display = "block";
+      document.getElementById("vipPodcasts").style.display = "none";
+      document.getElementById("premiumPodcasts").style.display = "none";
+    }
+
+    function showVipPodcasts() {
+      document.getElementById("freePodcasts").style.display = "none";
+      document.getElementById("vipPodcasts").style.display = "block";
+      document.getElementById("premiumPodcasts").style.display = "none";
+    }
+
+    function showPremiumPodcasts() {
+      document.getElementById("freePodcasts").style.display = "none";
+      document.getElementById("vipPodcasts").style.display = "none";
+      document.getElementById("premiumPodcasts").style.display = "block";
+    }
+
+    function showAllPodcasts() {
+      document.getElementById("freePodcasts").style.display = "block";
+      document.getElementById("vipPodcasts").style.display = "block";
+      document.getElementById("premiumPodcasts").style.display = "block";
+    }
+  </script>
+</div>

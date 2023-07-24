@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+  </head>
+  <body>
+    <!-- Include the header from the homepage -->
+    <% include partials/header %>
+
+    <div class="flash-container">
+      <% if (successMessage && successMessage.length > 0) { %>
+      <div class="flash-success"><%= successMessage %></div>
+      <script>
+        // Automatically remove success flash message after 2 seconds
+        setTimeout(() => {
+          document.querySelector(".flash-success").style.display = "none";
+        }, 2000);
+      </script>
+      <% } %> <% if (errorMessage && errorMessage.length > 0) { %>
+      <div class="flash-error"><%= errorMessage %></div>
+      <script>
+        // Automatically remove error flash message after 2 seconds
+        setTimeout(() => {
+          document.querySelector(".flash-error").style.display = "none";
+        }, 2000);
+      </script>
+      <% } %>
+    </div>
+
+    <!-- User Dashboard Content -->
+    <div class="user-dashboard">
+      <h1>Welcome, <%= user.name %>!</h1>
+
+      <!-- Add Upload Podcast button -->
+      <button onclick="scrollToUploadForm()" class="btn btn-green btn-upload">
+        Upload Podcast
+      </button>
+
+      <section id="allPodcasts">
+        <h2>All Podcasts</h2>
+        <ul>
+          <% for (const podcast of allPodcasts) { %>
+          <li class="podcast-card <%= podcast.category %>">
+            <!-- Podcast Cover Image -->
+            <figure>
+              <img
+                src="../<%= podcast.episodes[0].coverImageURL %>"
+                alt="Podcast Cover"
+                class="podcast-cover"
+              />
+            </figure>
+
+            <!-- Podcast Information -->
+            <div class="podcast-info">
+              <span class="podcast-title"><%= podcast.title %></span>
+              <span class="podcast-description"
+                ><%= podcast.description %></span
+              >
+              <span class="podcast-host">Host: <%= podcast.host.name %></span>
+              <span class="podcast-category"
+                >Category: <%= podcast.category %></span
+              >
+            </div>
+
+            <!-- Episodes Link -->
+            <div class="episodes-link">
+              <a href="/podcasts/<%= podcast._id %>/episodes" class="btn btn-blue"
+                >View Episodes</a
+              >
+            </div>
+          </li>
+          <% } %>
+        </ul>
+      </section>
+
+      <section id="uploadPodcast">
+        <h2>Upload Your Podcast</h2>
+        <form
+          action="/podcasts/upload"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value="Podcast-1"
+            required
+          />
+          <br />
+
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" required>
+First Ever Podcast</textarea
+          >
+          <br />
+
+          <!-- Add the category select dropdown -->
+          <label for="category">Category:</label>
+          <select id="category" name="category" required>
+            <option value="free" selected>Free</option>
+            <option value="vip">VIP</option>
+            <option value="premium">Premium</option>
+          </select>
+          <br />
+
+          <label for="coverImage">Cover Image:</label>
+          <input
+            type="file"
+            id="coverImage"
+            name="coverImage"
+            accept=".jpg, .jpeg, .png"
+            required
+          />
+          <br />
+
+          <label for="audioFile">Audio File:</label>
+          <input
+            type="file"
+            id="audioFile"
+            name="audioFile"
+            accept=".mp3, .ogg, .wav"
+            required
+          />
+          <br />
+
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+    </div>
+
+    <!-- Include the footer from the homepage -->
+    <% include partials/footer %>
+
+    <!-- Script to scroll to the "Upload Your Podcast" section -->
+    <script>
+      function scrollToUploadForm() {
+        const uploadSection = document.getElementById("uploadPodcast");
+        uploadSection.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
