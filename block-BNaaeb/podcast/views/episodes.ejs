@@ -1,0 +1,51 @@
+<!-- episodes.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Add your head content here -->
+  <title>Episodes - <%= podcast.title %></title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+  <!-- Include the header from the homepage -->
+  <% include partials/header %>
+
+  <div class="episodes-page">
+    <h1><%= podcast.title %> Episodes</h1>
+
+<!-- Display all episodes for the podcast -->
+<% if (podcast.episodes.length > 0) { %>
+    <ul class="episode-list">
+      <% for (const episode of podcast.episodes) { %>
+        <li class="episode-card <%= podcast.category %>">
+          <!-- Podcast Cover Image -->
+          <figure>
+            <img src="../../<%= episode.coverImageURL %>" alt="Podcast Cover" class="episode-cover">
+          </figure>
+  
+          <!-- Podcast Information -->
+          <div class="episode-info">
+            <h3 class="episode-title"><%= episode.title %></h3>
+          </div>
+  
+          <!-- Audio Player -->
+          <div class="audio-player">
+            <audio controls controlsList="nodownload">
+              <source src="../../<%= episode.audioFileURL %>" type="audio/mpeg">
+              Your browser does not support the audio element. You can download the audio file
+              <a href="<%= episode.audioFileURL %>" download>here</a>.
+            </audio>
+          </div>
+        </li>
+      <% } %>
+    </ul>
+  <% } else { %>
+    <p>No episodes found for this podcast.</p>
+  <% } %>
+  
+
+  <!-- Include the footer from the homepage -->
+  <% include partials/footer %>
+</body>
+</html>
